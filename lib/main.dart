@@ -57,20 +57,25 @@ class MyApp extends StatelessWidget {
             alignment: Alignment.centerLeft,
               child: Text('Profile', style: TextStyle(fontSize: 40, color: Colors.white),),
           ),
+          SizedBox(height: 20,),
           Row(
             children: <Widget>[
               Container(
                   width: 70,
                   height: 60,
                   decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/emma-watson.jpg'),
+                      fit: BoxFit.cover,
+                    ),
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     boxShadow: [
-                      BoxShadow(color: Colors.black26, blurRadius: 5, spreadRadius: 1)
+                      BoxShadow(color: Colors.black54, blurRadius: 10, spreadRadius: 1)
                     ],
                   ),
-                  child: Icon(Icons.account_circle, size: 60, color: Colors.white70,)
+
               ),
-              SizedBox(width: 5,),
+              SizedBox(width: 15,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -80,9 +85,9 @@ class MyApp extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(height: 20,),
           Center(
             child: Row(
-//            crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Center(
