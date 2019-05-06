@@ -34,7 +34,17 @@ class MyApp extends StatelessWidget {
   Widget buildProfileHeader(){
     return Container(
       padding: EdgeInsets.all(20),
-      color: Colors.purpleAccent,
+//      color: Colors.purpleAccent,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+            colors: [
+              Color(0xFF7928D1), Color(0xFF9A4DFF)
+            ],
+            stops: [0.3,0.5],
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+        ),
+      ),
       child: Column(
         children: <Widget>[
           SizedBox(height: 10,),
@@ -49,7 +59,17 @@ class MyApp extends StatelessWidget {
           ),
           Row(
             children: <Widget>[
-              Icon(Icons.account_circle, size: 60,),
+              Container(
+                  width: 70,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    boxShadow: [
+                      BoxShadow(color: Colors.black26, blurRadius: 5, spreadRadius: 1)
+                    ],
+                  ),
+                  child: Icon(Icons.account_circle, size: 60, color: Colors.white70,)
+              ),
               SizedBox(width: 5,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,31 +80,35 @@ class MyApp extends StatelessWidget {
               ),
             ],
           ),
-          Row(
+          Center(
+            child: Row(
 //            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Text('Followers', style: TextStyle(color: Colors.white, fontSize: 15),),
-                  Text('5.7m', style: TextStyle(color: Colors.white, fontSize: 20),),
-                ],
-              ),
-              buildVerticalDivider(),
-              Column(
-                children: <Widget>[
-                  Text('Following', style: TextStyle(color: Colors.white, fontSize: 15),),
-                  Text('924', style: TextStyle(color: Colors.white, fontSize: 20),),
-                ],
-              ),
-              buildVerticalDivider(),
-              Column(
-                children: <Widget>[
-                  Text('Total Likes', style: TextStyle(color: Colors.white, fontSize: 15),),
-                  Text('1.7k', style: TextStyle(color: Colors.white, fontSize: 20),),
-                ],
-              ),
-            ],
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Center(
+                  child: Column(
+                    children: <Widget>[
+                      Text('Followers', style: TextStyle(color: Colors.white, fontSize: 15),),
+                      Text('5.7m', style: TextStyle(color: Colors.white, fontSize: 20),),
+                    ],
+                  ),
+                ),
+                buildVerticalDivider(),
+                Column(
+                  children: <Widget>[
+                    Text('Following', style: TextStyle(color: Colors.white, fontSize: 15),),
+                    Text('924', style: TextStyle(color: Colors.white, fontSize: 20),),
+                  ],
+                ),
+                buildVerticalDivider(),
+                Column(
+                  children: <Widget>[
+                    Text('Total Likes', style: TextStyle(color: Colors.white, fontSize: 15),),
+                    Text('1.7k', style: TextStyle(color: Colors.white, fontSize: 20),),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
