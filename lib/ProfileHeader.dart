@@ -78,46 +78,11 @@ class ProfileHeader extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Center(
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Followers',
-                        style: TextStyle(color: Colors.white, fontSize: 15),
-                      ),
-                      Text(
-                        '5.7m',
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                    ],
-                  ),
-                ),
+                ProfileHeaderColumn('Followers', '5.7m'),
                 VerticalDivider(),
-                Column(
-                  children: <Widget>[
-                    Text(
-                      'Following',
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                    Text(
-                      '924',
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  ],
-                ),
+                ProfileHeaderColumn('Following', '924'),
                 VerticalDivider(),
-                Column(
-                  children: <Widget>[
-                    Text(
-                      'Total Likes',
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                    Text(
-                      '1.7k',
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  ],
-                ),
+                ProfileHeaderColumn('Total Likes', '1.7k'),
               ],
             ),
           ),
@@ -125,7 +90,32 @@ class ProfileHeader extends StatelessWidget {
       ),
     );
   }
+
 }
+
+class ProfileHeaderColumn extends StatelessWidget {
+  final String title;
+  final String data;
+
+  const ProfileHeaderColumn(this.title, this.data);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Text(
+          title,
+          style: TextStyle(color: Colors.white, fontSize: 15),
+        ),
+        Text(
+          data,
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+      ],
+    );
+  }
+}
+
 
 class VerticalDivider extends StatelessWidget {
   @override
