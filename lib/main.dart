@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:profile_ui/ProfileColors.dart';
 
-void main() => runApp(MyApp());
+void main() {
+//  debugPaintSizeEnabled = true;
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -29,39 +33,55 @@ class MyApp extends StatelessWidget {
 
   Widget buildProfileHeader(){
     return Container(
+      padding: EdgeInsets.all(20),
+      color: Colors.purpleAccent,
       child: Column(
         children: <Widget>[
-          Icon(Icons.notifications),
-          Text('Profile'),
+          SizedBox(height: 10,),
+          Container(
+            padding: EdgeInsets.only(right: 10),
+              alignment: Alignment.centerRight,
+              child: Icon(Icons.notifications_none, color: Colors.white, size: 30,)
+          ),
+          Container(
+            alignment: Alignment.centerLeft,
+              child: Text('Profile', style: TextStyle(fontSize: 40, color: Colors.white),),
+          ),
           Row(
             children: <Widget>[
-              Icon(Icons.account_circle),
+              Icon(Icons.account_circle, size: 60,),
+              SizedBox(width: 5,),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Emma Watson'),
-                  Text('New York'),
+                  Text('Emma Watson', style: TextStyle(color: Colors.white, fontSize: 20),),
+                  Text('New York', style: TextStyle(color: Colors.white),),
                 ],
               ),
             ],
           ),
           Row(
+//            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  Text('Followers'),
-                  Text('5.7m'),
+                  Text('Followers', style: TextStyle(color: Colors.white, fontSize: 15),),
+                  Text('5.7m', style: TextStyle(color: Colors.white, fontSize: 20),),
                 ],
               ),
+              buildVerticalDivider(),
               Column(
                 children: <Widget>[
-                  Text('Following'),
-                  Text('924'),
+                  Text('Following', style: TextStyle(color: Colors.white, fontSize: 15),),
+                  Text('924', style: TextStyle(color: Colors.white, fontSize: 20),),
                 ],
               ),
+              buildVerticalDivider(),
               Column(
                 children: <Widget>[
-                  Text('Total Likes'),
-                  Text('1.7k'),
+                  Text('Total Likes', style: TextStyle(color: Colors.white, fontSize: 15),),
+                  Text('1.7k', style: TextStyle(color: Colors.white, fontSize: 20),),
                 ],
               ),
             ],
@@ -69,6 +89,15 @@ class MyApp extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Container buildVerticalDivider() {
+    return Container(
+              height: 30,
+              width: 1,
+              color: Colors.white30,
+              margin: EdgeInsets.only(left:10, right:10),
+            );
   }
 
   Expanded buildMainMenu() {
